@@ -198,3 +198,39 @@ Date: Thu, 04 Aug 2022 13:05:14 GMT
 [2022-08-04 13:20:53Z INFO JobDispatcher] job renew has been cancelled, stop renew job request 2.
 [2022-08-04 13:20:53Z INFO JobNotification] Entering JobCompleted Notification
 [2022-08-04 13:20:53Z INFO JobNotification] Entering EndMonitor
+[2022-08-04 13:26:32Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.credentials_rsaparams
+[2022-08-04 13:26:32Z INFO MessageListener] Message '3' received from session '9e2a1c4a-f271-44ac-acf0-acdcf45130fc'.
+[2022-08-04 13:26:32Z INFO Runner] Received job message of length 21960 from service, with hash 'd2951aeae42b35d31fedd42851e01de244f46180d7c1986bdb4f0aefb3d774b1'
+[2022-08-04 13:26:32Z INFO JobDispatcher] Job request 3 for plan f5733298-2f5e-4bbc-9cab-4da7dff34fec job ca395085-040a-526b-2ce8-bdc85f692774 received.
+[2022-08-04 13:26:32Z INFO JobDispatcher] Pull OrchestrationId f5733298-2f5e-4bbc-9cab-4da7dff34fec.build.__default from JWT claims
+[2022-08-04 13:26:32Z INFO JobDispatcher] Job request ca395085-040a-526b-2ce8-bdc85f692774 processed succeed.
+[2022-08-04 13:26:32Z INFO Terminal] WRITE LINE: 2022-08-04 13:26:32Z: Running job: build
+[2022-08-04 13:26:32Z INFO JobDispatcher] Start renew job request 3 for job ca395085-040a-526b-2ce8-bdc85f692774.
+[2022-08-04 13:26:32Z INFO JobDispatcher] Successfully renew job request 3, job is valid till 8/4/2022 1:36:32 PM
+[2022-08-04 13:26:32Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:26:32Z INFO ProcessInvokerWrapper] Starting process:
+[2022-08-04 13:26:32Z INFO ProcessInvokerWrapper]   File name: '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin/Runner.Worker'
+[2022-08-04 13:26:32Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 110 113'
+[2022-08-04 13:26:32Z INFO ProcessInvokerWrapper]   Working directory: '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:26:32Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-08-04 13:26:32Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-08-04 13:26:32Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2022-08-04 13:26:32Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-08-04 13:26:32Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-08-04 13:26:32Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-08-04 13:26:32Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2022-08-04 13:26:32Z INFO ProcessInvokerWrapper] Process started with process id 19791, waiting for process exit.
+[2022-08-04 13:26:32Z INFO JobDispatcher] Send job request message to worker for job ca395085-040a-526b-2ce8-bdc85f692774.
+[2022-08-04 13:26:32Z INFO ProcessChannel] Sending message of length 21960, with hash 'd2951aeae42b35d31fedd42851e01de244f46180d7c1986bdb4f0aefb3d774b1'
+[2022-08-04 13:26:32Z INFO JobNotification] Entering JobStarted Notification
+[2022-08-04 13:26:32Z INFO JobNotification] Entering StartMonitor
+[2022-08-04 13:26:41Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:26:41Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:26:41Z INFO ProcessInvokerWrapper] Finished process 19791 with exit code 102, and elapsed time 00:00:08.8166482.
+[2022-08-04 13:26:41Z INFO JobDispatcher] Worker finished for job ca395085-040a-526b-2ce8-bdc85f692774. Code: 102
+[2022-08-04 13:26:41Z INFO JobDispatcher] finish job request for job ca395085-040a-526b-2ce8-bdc85f692774 with result: Failed
+[2022-08-04 13:26:41Z INFO Terminal] WRITE LINE: 2022-08-04 13:26:41Z: Job build completed with result: Failed
+[2022-08-04 13:26:41Z INFO JobDispatcher] Stop renew job request for job ca395085-040a-526b-2ce8-bdc85f692774.
+[2022-08-04 13:26:41Z INFO JobDispatcher] job renew has been cancelled, stop renew job request 3.
+[2022-08-04 13:26:41Z INFO JobNotification] Entering JobCompleted Notification
+[2022-08-04 13:26:41Z INFO JobNotification] Entering EndMonitor

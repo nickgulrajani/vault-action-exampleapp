@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "nickgulrajani/vault-action-exampleapp",
+  "pipelineDirectory": "vault-action-exampleapp",
+  "workspaceDirectory": "vault-action-exampleapp/vault-action-exampleapp",
+  "repositories": {
+    "nickgulrajani/vault-action-exampleapp": {
+      "repositoryPath": "vault-action-exampleapp/vault-action-exampleapp",
+      "lastRunOn": "08/04/2022 09:15:41 -04:00"
+    }
+  },
+  "lastRunOn": "08/04/2022 09:15:41 -04:00"
+}

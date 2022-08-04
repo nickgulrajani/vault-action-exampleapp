@@ -127,3 +127,38 @@ Date: Thu, 04 Aug 2022 13:05:14 GMT
 [2022-08-04 13:05:15Z INFO Terminal] WRITE LINE: Current runner version: '2.294.0'
 [2022-08-04 13:05:15Z INFO Terminal] WRITE LINE: 2022-08-04 13:05:15Z: Listening for Jobs
 [2022-08-04 13:05:15Z INFO JobDispatcher] Set runner/worker IPC timeout to 30 seconds.
+[2022-08-04 13:15:38Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.credentials_rsaparams
+[2022-08-04 13:15:38Z INFO MessageListener] Message '1' received from session '9e2a1c4a-f271-44ac-acf0-acdcf45130fc'.
+[2022-08-04 13:15:38Z INFO Runner] Received job message of length 22581 from service, with hash '133453f80d2ebc44bf048605a534a91206d4e7b24205b9e75bb5779bd4a6e157'
+[2022-08-04 13:15:38Z INFO JobDispatcher] Job request 1 for plan 70e2eca7-e42f-4030-8384-a35ca5f5e11a job ca395085-040a-526b-2ce8-bdc85f692774 received.
+[2022-08-04 13:15:38Z INFO JobDispatcher] Pull OrchestrationId 70e2eca7-e42f-4030-8384-a35ca5f5e11a.build.__default from JWT claims
+[2022-08-04 13:15:38Z INFO Terminal] WRITE LINE: 2022-08-04 13:15:38Z: Running job: build
+[2022-08-04 13:15:38Z INFO JobDispatcher] Start renew job request 1 for job ca395085-040a-526b-2ce8-bdc85f692774.
+[2022-08-04 13:15:39Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/4/2022 1:25:39 PM
+[2022-08-04 13:15:39Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:15:39Z INFO ProcessInvokerWrapper] Starting process:
+[2022-08-04 13:15:39Z INFO ProcessInvokerWrapper]   File name: '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin/Runner.Worker'
+[2022-08-04 13:15:39Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 110 113'
+[2022-08-04 13:15:39Z INFO ProcessInvokerWrapper]   Working directory: '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:15:39Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-08-04 13:15:39Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-08-04 13:15:39Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2022-08-04 13:15:39Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-08-04 13:15:39Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-08-04 13:15:39Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-08-04 13:15:39Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2022-08-04 13:15:39Z INFO ProcessInvokerWrapper] Process started with process id 15105, waiting for process exit.
+[2022-08-04 13:15:39Z INFO JobDispatcher] Send job request message to worker for job ca395085-040a-526b-2ce8-bdc85f692774.
+[2022-08-04 13:15:39Z INFO ProcessChannel] Sending message of length 22581, with hash '133453f80d2ebc44bf048605a534a91206d4e7b24205b9e75bb5779bd4a6e157'
+[2022-08-04 13:15:39Z INFO JobNotification] Entering JobStarted Notification
+[2022-08-04 13:15:39Z INFO JobNotification] Entering StartMonitor
+[2022-08-04 13:15:59Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:15:59Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:15:59Z INFO ProcessInvokerWrapper] Finished process 15105 with exit code 102, and elapsed time 00:00:19.8608084.
+[2022-08-04 13:15:59Z INFO JobDispatcher] Worker finished for job ca395085-040a-526b-2ce8-bdc85f692774. Code: 102
+[2022-08-04 13:15:59Z INFO JobDispatcher] finish job request for job ca395085-040a-526b-2ce8-bdc85f692774 with result: Failed
+[2022-08-04 13:15:59Z INFO Terminal] WRITE LINE: 2022-08-04 13:15:59Z: Job build completed with result: Failed
+[2022-08-04 13:15:59Z INFO JobDispatcher] Stop renew job request for job ca395085-040a-526b-2ce8-bdc85f692774.
+[2022-08-04 13:15:59Z INFO JobDispatcher] job renew has been cancelled, stop renew job request 1.
+[2022-08-04 13:15:59Z INFO JobNotification] Entering JobCompleted Notification
+[2022-08-04 13:15:59Z INFO JobNotification] Entering EndMonitor

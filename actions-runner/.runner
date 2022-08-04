@@ -1,0 +1,9 @@
+﻿{
+  "agentId": 2,
+  "agentName": "LT-APL0075987",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelines.actions.githubusercontent.com/KdDGvkBwhBt0IpIaUUmxaHXtBfg4MhtDzT2z3mvPlMrV9Jb59W",
+  "gitHubUrl": "https://github.com/nickgulrajani/vault-action-exampleapp",
+  "workFolder": "_work"
+}

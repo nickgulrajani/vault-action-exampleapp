@@ -1,0 +1,129 @@
+[2022-08-04 13:05:13Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2022-08-04 13:05:13Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:05:13Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:05:13Z INFO HostContext] Well known config file 'Credentials': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.credentials'
+[2022-08-04 13:05:14Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:05:14Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:05:14Z INFO HostContext] Well known config file 'Runner': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.runner'
+[2022-08-04 13:05:14Z INFO Listener] Runner is built for OSX (X64) - osx-x64.
+[2022-08-04 13:05:14Z INFO Listener] RuntimeInformation: Darwin 21.6.0 Darwin Kernel Version 21.6.0: Sat Jun 18 17:07:25 PDT 2022; root:xnu-8020.140.41~1/RELEASE_X86_64.
+[2022-08-04 13:05:14Z INFO Listener] Version: 2.294.0
+[2022-08-04 13:05:14Z INFO Listener] Commit: 709bd6113d2fca3a89a0fef11913ce4efd7b8cc5
+[2022-08-04 13:05:14Z INFO Listener] Culture: en-US
+[2022-08-04 13:05:14Z INFO Listener] UI Culture: en-US
+[2022-08-04 13:05:14Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:05:14Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:05:14Z INFO Listener] Validating directory permissions for: '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:05:14Z INFO CommandLineParser] Parse
+[2022-08-04 13:05:14Z INFO CommandLineParser] Parsing 1 args
+[2022-08-04 13:05:14Z INFO CommandLineParser] parsing argument
+[2022-08-04 13:05:14Z INFO CommandLineParser] HasArgs: False
+[2022-08-04 13:05:14Z INFO CommandLineParser] Adding Command: run
+[2022-08-04 13:05:14Z INFO Listener] Arguments parsed
+[2022-08-04 13:05:14Z INFO Runner] ExecuteCommand
+[2022-08-04 13:05:14Z INFO ConfigurationStore] currentAssemblyLocation: /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin/Runner.Listener.dll
+[2022-08-04 13:05:14Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:05:14Z INFO ConfigurationStore] binPath: /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin
+[2022-08-04 13:05:14Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:05:14Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:05:14Z INFO ConfigurationStore] RootFolder: /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner
+[2022-08-04 13:05:14Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:05:14Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:05:14Z INFO HostContext] Well known config file 'Runner': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.runner'
+[2022-08-04 13:05:14Z INFO ConfigurationStore] ConfigFilePath: /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.runner
+[2022-08-04 13:05:14Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:05:14Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:05:14Z INFO HostContext] Well known config file 'Credentials': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.credentials'
+[2022-08-04 13:05:14Z INFO ConfigurationStore] CredFilePath: /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.credentials
+[2022-08-04 13:05:14Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:05:14Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:05:14Z INFO HostContext] Well known config file 'MigratedCredentials': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.credentials_migrated'
+[2022-08-04 13:05:14Z INFO ConfigurationStore] MigratedCredFilePath: /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.credentials_migrated
+[2022-08-04 13:05:14Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:05:14Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:05:14Z INFO HostContext] Well known config file 'Service': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.service'
+[2022-08-04 13:05:14Z INFO ConfigurationStore] ServiceConfigFilePath: /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.service
+[2022-08-04 13:05:14Z INFO CommandSettings] Flag 'help': 'False'
+[2022-08-04 13:05:14Z INFO CommandSettings] Flag 'version': 'False'
+[2022-08-04 13:05:14Z INFO CommandSettings] Flag 'commit': 'False'
+[2022-08-04 13:05:14Z INFO CommandSettings] Flag 'check': 'False'
+[2022-08-04 13:05:14Z INFO CommandSettings] Command 'configure': 'False'
+[2022-08-04 13:05:14Z INFO CommandSettings] Command 'remove': 'False'
+[2022-08-04 13:05:14Z INFO CommandSettings] Command 'warmup': 'False'
+[2022-08-04 13:05:14Z INFO ConfigurationManager] LoadSettings
+[2022-08-04 13:05:14Z INFO ConfigurationStore] IsConfigured()
+[2022-08-04 13:05:14Z INFO ConfigurationStore] IsConfigured: True
+[2022-08-04 13:05:14Z INFO ConfigurationManager] Is configured: True
+[2022-08-04 13:05:14Z INFO ConfigurationStore] Read setting file: 307 chars
+[2022-08-04 13:05:14Z INFO ConfigurationManager] Settings Loaded
+[2022-08-04 13:05:14Z INFO ConfigurationStore] IsServiceConfigured()
+[2022-08-04 13:05:14Z INFO ConfigurationStore] IsServiceConfigured: False
+[2022-08-04 13:05:14Z INFO CommandSettings] Command 'run': 'True'
+[2022-08-04 13:05:14Z INFO ConfigurationStore] IsConfigured()
+[2022-08-04 13:05:14Z INFO ConfigurationStore] IsConfigured: True
+[2022-08-04 13:05:14Z INFO ConfigurationManager] Is configured: True
+[2022-08-04 13:05:14Z INFO Runner] Could not parse the argument value '' for StartupType. Defaulting to Manual
+[2022-08-04 13:05:14Z INFO Runner] Set runner startup type - Manual
+[2022-08-04 13:05:14Z INFO CommandSettings] Flag 'once': 'False'
+[2022-08-04 13:05:14Z INFO CommandSettings] Flag 'once': 'False'
+[2022-08-04 13:05:14Z INFO Runner] RunAsync
+[2022-08-04 13:05:14Z INFO ConfigurationManager] LoadSettings
+[2022-08-04 13:05:14Z INFO ConfigurationStore] IsConfigured()
+[2022-08-04 13:05:14Z INFO ConfigurationStore] IsConfigured: True
+[2022-08-04 13:05:14Z INFO ConfigurationManager] Is configured: True
+[2022-08-04 13:05:14Z INFO ConfigurationManager] Settings Loaded
+[2022-08-04 13:05:14Z INFO MessageListener] {
+  "AgentId": 2,
+  "AgentName": "LT-APL0075987",
+  "PoolId": 1,
+  "PoolName": "Default",
+  "ServerUrl": "https://pipelines.actions.githubusercontent.com/KdDGvkBwhBt0IpIaUUmxaHXtBfg4MhtDzT2z3mvPlMrV9Jb59W",
+  "GitHubUrl": "https://github.com/nickgulrajani/vault-action-exampleapp",
+  "WorkFolder": "_work"
+}
+[2022-08-04 13:05:14Z INFO MessageListener] Loading Credentials
+[2022-08-04 13:05:14Z INFO ConfigurationStore] HasCredentials()
+[2022-08-04 13:05:14Z INFO ConfigurationStore] stored True
+[2022-08-04 13:05:14Z INFO CredentialManager] GetCredentialProvider
+[2022-08-04 13:05:14Z INFO CredentialManager] Creating type OAuth
+[2022-08-04 13:05:14Z INFO CredentialManager] Creating credential type: OAuth
+[2022-08-04 13:05:14Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:05:14Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:05:14Z INFO HostContext] Well known config file 'RSACredentials': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.credentials_rsaparams'
+[2022-08-04 13:05:14Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.credentials_rsaparams
+[2022-08-04 13:05:14Z INFO MessageListener] Attempt to create session.
+[2022-08-04 13:05:14Z INFO MessageListener] Connecting to the Runner Server...
+[2022-08-04 13:05:14Z INFO RunnerServer] Establish connection with 100 seconds timeout.
+[2022-08-04 13:05:14Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2022-08-04 13:05:14Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2022-08-04 13:05:14Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2022-08-04 13:05:14Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2022-08-04 13:05:14Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2022-08-04 13:05:14Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2022-08-04 13:05:14Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2022-08-04 13:05:14Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2022-08-04 13:05:15Z INFO MessageListener] VssConnection created
+[2022-08-04 13:05:15Z INFO Terminal] WRITE LINE: 
+[2022-08-04 13:05:15Z INFO Terminal] WRITE LINE: 
+[2022-08-04 13:05:15Z WARN GitHubActionsService] Authentication failed with status code 401.
+Transfer-Encoding: chunked
+WWW-Authenticate: Bearer
+Strict-Transport-Security: max-age=2592000
+X-TFS-ProcessId: 61421288-8ac3-4dcf-b9e7-78b10e4683ed
+ActivityId: cd704e03-3f85-41ec-ad7c-2084c3174dfb
+X-TFS-Session: e6d54e21-b486-4395-9595-42a0c2d71d6f
+X-VSS-E2EID: 84623aa8-87a8-4cd1-9c8c-e0ca776347f2
+X-VSS-SenderDeploymentId: 7101e053-bd8e-689b-be8c-ce908c7f0053
+X-TFS-ServiceError: The+user+%27System%3aPublicAccess%3baaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa%27+is+not+authorized+to+access+this+resource.
+X-VSS-S2STargetService: 0000005A-0000-8888-8000-000000000000/visualstudio.com
+X-Cache: CONFIG_NOCACHE
+X-MSEdge-Ref: Ref A: 3785A31A1D1149B5A8DA8C2E1E2EFB2B Ref B: MIAEDGE1510 Ref C: 2022-08-04T13:05:15Z
+Date: Thu, 04 Aug 2022 13:05:14 GMT
+
+[2022-08-04 13:05:15Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.credentials_rsaparams
+[2022-08-04 13:05:15Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.credentials_rsaparams
+[2022-08-04 13:05:15Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2022-08-04 13:05:15Z INFO MessageListener] Session created.
+[2022-08-04 13:05:15Z INFO Terminal] WRITE LINE: Current runner version: '2.294.0'
+[2022-08-04 13:05:15Z INFO Terminal] WRITE LINE: 2022-08-04 13:05:15Z: Listening for Jobs
+[2022-08-04 13:05:15Z INFO JobDispatcher] Set runner/worker IPC timeout to 30 seconds.

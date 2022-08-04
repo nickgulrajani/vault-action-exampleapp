@@ -1,0 +1,3756 @@
+[2022-08-04 13:20:43Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2022-08-04 13:20:43Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:43Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:43Z INFO HostContext] Well known config file 'Credentials': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.credentials'
+[2022-08-04 13:20:44Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:44Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:44Z INFO HostContext] Well known config file 'Runner': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.runner'
+[2022-08-04 13:20:44Z INFO Worker] Version: 2.294.0
+[2022-08-04 13:20:44Z INFO Worker] Commit: 709bd6113d2fca3a89a0fef11913ce4efd7b8cc5
+[2022-08-04 13:20:44Z INFO Worker] Culture: en-US
+[2022-08-04 13:20:44Z INFO Worker] UI Culture: en-US
+[2022-08-04 13:20:44Z INFO Worker] Waiting to receive the job message from the channel.
+[2022-08-04 13:20:44Z INFO ProcessChannel] Receiving message of length 21960, with hash '4438d82c0420e109dec9d9c95281bd91b40929d2af38337db56978ad56ce73ed'
+[2022-08-04 13:20:44Z INFO Worker] Message received.
+[2022-08-04 13:20:44Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/image-builder.yml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/checkout",
+        "ref": "v2",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "contextName": "__actions_checkout",
+      "condition": "success()",
+      "id": "a60052d4-79a0-5821-3eeb-84adb9872c5b",
+      "name": "__actions_checkout"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "hashicorp/vault-action",
+        "ref": "v2.4.0",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 9,
+        "col": 15,
+        "lit": "Import Secrets"
+      },
+      "contextName": "__hashicorp_vault-action",
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 12,
+        "col": 11,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 12,
+              "col": 11,
+              "lit": "url"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 12,
+              "col": 16,
+              "lit": "http://127.0.0.1:8200"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 13,
+              "col": 11,
+              "lit": "tlsSkipVerify"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 13,
+              "col": 26,
+              "lit": "true"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 14,
+              "col": 11,
+              "lit": "token"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 14,
+              "col": 18,
+              "expr": "secrets.VAULT_TOKEN"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 15,
+              "col": 11,
+              "lit": "secrets"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 15,
+              "col": 20,
+              "lit": "secret/data/ci app_secret\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "0c134453-1b3c-597f-9b43-d26a5693f23c",
+      "name": "__hashicorp_vault-action"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 17,
+        "col": 15,
+        "lit": "Build Docker Image"
+      },
+      "contextName": "__run",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 18,
+              "col": 14,
+              "expr": "format('docker build . --file Dockerfile --build-arg app_secret=\"{0}\" -t vault-action-exampleapp', env.APP_SECRET)"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "dd23db01-cff6-57a4-373a-5c8097a97333",
+      "name": "__run"
+    }
+  ],
+  "variables": {
+    "VAULT_TOKEN": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.isScheduled": {
+      "value": "False"
+    },
+    "system.servertype": {
+      "value": "Hosted"
+    },
+    "system.culture": {
+      "value": "en-US"
+    },
+    "system.pipelineStartTime": {
+      "value": "2022-08-04 13:20:41+00:00"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.EnableCompositeActions": {
+      "value": "true"
+    },
+    "DistributedTask.EnhancedAnnotations": {
+      "value": "true"
+    },
+    "DistributedTask.UploadStepSummary": {
+      "value": "true"
+    },
+    "DistributedTask.AllowRunnerContainerHooks": {
+      "value": "true"
+    },
+    "system.teamProjectId": {
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    "build.buildId": {
+      "value": "2"
+    },
+    "build.containerId": {
+      "value": "765321"
+    },
+    "system.workflowFilePath": {
+      "value": ".github/workflows/image-builder.yml"
+    },
+    "system.phaseDisplayName": {
+      "value": "build"
+    },
+    "system.phaseId": {
+      "value": "6884a131-87da-5381-61f3-d7acc3b91d76"
+    },
+    "system.phaseName": {
+      "value": "build"
+    },
+    "system.phaseAttempt": {
+      "value": "1"
+    },
+    "system.jobIdentifier": {
+      "value": "build.__default"
+    },
+    "system.jobAttempt": {
+      "value": "1"
+    },
+    "System.JobPositionInPhase": {
+      "value": "1"
+    },
+    "System.TotalJobsInPhase": {
+      "value": "1"
+    },
+    "system.github.job": {
+      "value": "build"
+    },
+    "system.jobDisplayName": {
+      "value": "build"
+    },
+    "system.jobId": {
+      "value": "ca395085-040a-526b-2ce8-bdc85f692774"
+    },
+    "system.jobName": {
+      "value": "__default"
+    },
+    "system.github.token.permissions": {
+      "value": "{\"Actions\":\"write\",\"Checks\":\"write\",\"Contents\":\"write\",\"Deployments\":\"write\",\"Discussions\":\"write\",\"Issues\":\"write\",\"Metadata\":\"read\",\"Packages\":\"write\",\"Pages\":\"write\",\"PullRequests\":\"write\",\"RepositoryProjects\":\"write\",\"SecurityEvents\":\"write\",\"Statuses\":\"write\"}"
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.runnerGroupName": {
+      "value": "Default"
+    }
+  },
+  "messageType": "PipelineAgentJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "Actions",
+    "version": 26,
+    "planId": "d82b0991-def0-4a94-af08-4a7e61e28f89",
+    "planGroup": "Actions:00000000-0000-0000-0000-000000000000:1",
+    "artifactUri": "vstfs:///Build/Build/2",
+    "artifactLocation": null,
+    "definition": {
+      "_links": {},
+      "id": 3,
+      "name": "vault-action-exampleapp"
+    },
+    "owner": {
+      "_links": {},
+      "id": 3,
+      "name": "nickgulrajani"
+    }
+  },
+  "timeline": {
+    "id": "d82b0991-def0-4a94-af08-4a7e61e28f89",
+    "changeId": 0,
+    "location": null
+  },
+  "jobId": "ca395085-040a-526b-2ce8-bdc85f692774",
+  "jobDisplayName": "build",
+  "jobName": "__default",
+  "requestId": 2,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "c6ca5da0-cdd4-40e0-be7f-182ac7cadabf",
+          "ServerName": "KdDGvkBwhBt0IpIaUUmxaHXtBfg4MhtDzT2z3mvPlMrV9Jb59W",
+          "CacheServerUrl": "https://artifactcache.actions.githubusercontent.com/KdDGvkBwhBt0IpIaUUmxaHXtBfg4MhtDzT2z3mvPlMrV9Jb59W/",
+          "FeedStreamUrl": "https://pipelines.actions.githubusercontent.com/KdDGvkBwhBt0IpIaUUmxaHXtBfg4MhtDzT2z3mvPlMrV9Jb59W/00000000-0000-0000-0000-000000000000/_apis/distributedtask/hubs/Actions/plans/d82b0991-def0-4a94-af08-4a7e61e28f89/timelines/d82b0991-def0-4a94-af08-4a7e61e28f89/records/ca395085-040a-526b-2ce8-bdc85f692774/feedstream?api-version=6.0-preview"
+        },
+        "name": "SystemVssConnection",
+        "url": "https://pipelines.actions.githubusercontent.com/KdDGvkBwhBt0IpIaUUmxaHXtBfg4MhtDzT2z3mvPlMrV9Jb59W/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": ***
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/main"
+        },
+        {
+          "k": "sha",
+          "v": "49ab53ebc11cf604a8a3a10d6b4c9962890e10cb"
+        },
+        {
+          "k": "repository",
+          "v": "nickgulrajani/vault-action-exampleapp"
+        },
+        {
+          "k": "repository_owner",
+          "v": "nickgulrajani"
+        },
+        {
+          "k": "repository_owner_id",
+          "v": "4518822"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/nickgulrajani/vault-action-exampleapp.git"
+        },
+        {
+          "k": "run_id",
+          "v": "2796939719"
+        },
+        {
+          "k": "run_number",
+          "v": "2"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "run_attempt",
+          "v": "1"
+        },
+        {
+          "k": "artifact_cache_size_limit",
+          "v": "10"
+        },
+        {
+          "k": "repository_visibility",
+          "v": "public"
+        },
+        {
+          "k": "repository_id",
+          "v": "521267287"
+        },
+        {
+          "k": "actor_id",
+          "v": "4518822"
+        },
+        {
+          "k": "actor",
+          "v": "nickgulrajani"
+        },
+        {
+          "k": "triggering_actor",
+          "v": "nickgulrajani"
+        },
+        {
+          "k": "workflow",
+          "v": "ImageBuilder"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "49ab53ebc11cf604a8a3a10d6b4c9962890e10cb"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "d15529268b201b25ca436ce0cfad9c6ec52f26e9"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "a@b.c"
+                              },
+                              {
+                                "k": "name",
+                                "v": "gitName"
+                              },
+                              {
+                                "k": "username",
+                                "v": "cincrement"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "a@b.c"
+                              },
+                              {
+                                "k": "name",
+                                "v": "gitName"
+                              },
+                              {
+                                "k": "username",
+                                "v": "cincrement"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "49ab53ebc11cf604a8a3a10d6b4c9962890e10cb"
+                        },
+                        {
+                          "k": "message",
+                          "v": "WIP"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2022-08-04T09:20:29-04:00"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "0b0bdc85211563396350900d1f8e18e7bcf5bc1b"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/nickgulrajani/vault-action-exampleapp/commit/49ab53ebc11cf604a8a3a10d6b4c9962890e10cb"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/nickgulrajani/vault-action-exampleapp/compare/d15529268b20...49ab53ebc11c"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "a@b.c"
+                          },
+                          {
+                            "k": "name",
+                            "v": "gitName"
+                          },
+                          {
+                            "k": "username",
+                            "v": "cincrement"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "a@b.c"
+                          },
+                          {
+                            "k": "name",
+                            "v": "gitName"
+                          },
+                          {
+                            "k": "username",
+                            "v": "cincrement"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "49ab53ebc11cf604a8a3a10d6b4c9962890e10cb"
+                    },
+                    {
+                      "k": "message",
+                      "v": "WIP"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2022-08-04T09:20:29-04:00"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "0b0bdc85211563396350900d1f8e18e7bcf5bc1b"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/nickgulrajani/vault-action-exampleapp/commit/49ab53ebc11cf604a8a3a10d6b4c9962890e10cb"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "nicholas.gulrajani@gmail.com"
+                    },
+                    {
+                      "k": "name",
+                      "v": "nickgulrajani"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/main"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "allow_forking",
+                      "v": true
+                    },
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/nickgulrajani/vault-action-exampleapp.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1659617878.0
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": null
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": false
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "nickgulrajani/vault-action-exampleapp"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/nickgulrajani/vault-action-exampleapp.git"
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": false
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": true
+                    },
+                    {
+                      "k": "homepage",
+                      "v": null
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/nickgulrajani/vault-action-exampleapp"
+                    },
+                    {
+                      "k": "id",
+                      "v": 521267287.0
+                    },
+                    {
+                      "k": "is_template",
+                      "v": false
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": "Shell"
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": null
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "vault-action-exampleapp"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "R_kgDOHxHoVw"
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/4518822?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": "nicholas.gulrajani@gmail.com"
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/nickgulrajani/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/nickgulrajani/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/nickgulrajani/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/nickgulrajani/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/nickgulrajani"
+                          },
+                          {
+                            "k": "id",
+                            "v": 4518822.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "nickgulrajani"
+                          },
+                          {
+                            "k": "name",
+                            "v": "nickgulrajani"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "MDQ6VXNlcjQ1MTg4MjI="
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/nickgulrajani/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/nickgulrajani/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/nickgulrajani/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/nickgulrajani/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/nickgulrajani/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "User"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/nickgulrajani"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": false
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1659619238.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:nickgulrajani/vault-action-exampleapp.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/nickgulrajani/vault-action-exampleapp"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/teams"
+                    },
+                    {
+                      "k": "topics",
+                      "v": {
+                        "t": 1
+                      }
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/nickgulrajani/vault-action-exampleapp/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2022-08-04T13:01:43Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/nickgulrajani/vault-action-exampleapp"
+                    },
+                    {
+                      "k": "visibility",
+                      "v": "public"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "web_commit_signoff_required",
+                      "v": false
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/4518822?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/nickgulrajani/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/nickgulrajani/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/nickgulrajani/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/nickgulrajani/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/nickgulrajani"
+                    },
+                    {
+                      "k": "id",
+                      "v": 4518822.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "nickgulrajani"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "MDQ6VXNlcjQ1MTg4MjI="
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/nickgulrajani/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/nickgulrajani/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/nickgulrajani/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/nickgulrajani/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/nickgulrajani/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/nickgulrajani"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        },
+        {
+          "k": "ref_name",
+          "v": "main"
+        },
+        {
+          "k": "ref_protected",
+          "v": false
+        },
+        {
+          "k": "ref_type",
+          "v": "branch"
+        },
+        {
+          "k": "secret_source",
+          "v": "Actions"
+        }
+      ]
+    },
+    "needs": {
+      "t": 2
+    },
+    "inputs": {
+      "t": 2
+    },
+    "matrix": null,
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 0.0
+        },
+        {
+          "k": "job-total",
+          "v": 1.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 1.0
+        }
+      ]
+    }
+  }
+}
+[2022-08-04 13:20:44Z INFO JobRunner] Job ID ca395085-040a-526b-2ce8-bdc85f692774
+[2022-08-04 13:20:44Z INFO JobRunner] Creating job server with URL: https://pipelines.actions.githubusercontent.com/KdDGvkBwhBt0IpIaUUmxaHXtBfg4MhtDzT2z3mvPlMrV9Jb59W/
+[2022-08-04 13:20:44Z INFO ConfigurationStore] currentAssemblyLocation: /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin/Runner.Worker.dll
+[2022-08-04 13:20:44Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:44Z INFO ConfigurationStore] binPath: /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin
+[2022-08-04 13:20:44Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:44Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:44Z INFO ConfigurationStore] RootFolder: /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner
+[2022-08-04 13:20:44Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:44Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:44Z INFO HostContext] Well known config file 'Runner': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.runner'
+[2022-08-04 13:20:44Z INFO ConfigurationStore] ConfigFilePath: /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.runner
+[2022-08-04 13:20:44Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:44Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:44Z INFO HostContext] Well known config file 'Credentials': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.credentials'
+[2022-08-04 13:20:44Z INFO ConfigurationStore] CredFilePath: /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.credentials
+[2022-08-04 13:20:44Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:44Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:44Z INFO HostContext] Well known config file 'MigratedCredentials': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.credentials_migrated'
+[2022-08-04 13:20:44Z INFO ConfigurationStore] MigratedCredFilePath: /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.credentials_migrated
+[2022-08-04 13:20:44Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:44Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:44Z INFO HostContext] Well known config file 'Service': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.service'
+[2022-08-04 13:20:44Z INFO ConfigurationStore] ServiceConfigFilePath: /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.service
+[2022-08-04 13:20:44Z INFO ConfigurationStore] Read setting file: 307 chars
+[2022-08-04 13:20:44Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2022-08-04 13:20:44Z INFO Worker] Listening for cancel message from the channel.
+[2022-08-04 13:20:44Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2022-08-04 13:20:45Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2022-08-04 13:20:45Z INFO JobServer] Creating websocket client ...wss://pipelines.actions.githubusercontent.com/KdDGvkBwhBt0IpIaUUmxaHXtBfg4MhtDzT2z3mvPlMrV9Jb59W/00000000-0000-0000-0000-000000000000/_apis/distributedtask/hubs/Actions/plans/d82b0991-def0-4a94-af08-4a7e61e28f89/timelines/d82b0991-def0-4a94-af08-4a7e61e28f89/records/ca395085-040a-526b-2ce8-bdc85f692774/feedstream?api-version=6.0-preview
+[2022-08-04 13:20:45Z INFO JobServer] Attempting to start websocket client with delay 00:00:00.
+[2022-08-04 13:20:45Z INFO JobServerQueue] Start process web console line queue.
+[2022-08-04 13:20:45Z INFO JobServerQueue] Start process file upload queue.
+[2022-08-04 13:20:45Z INFO JobServerQueue] Start process timeline update queue.
+[2022-08-04 13:20:45Z INFO ExecutionContext] Initialize GitHub context
+[2022-08-04 13:20:45Z INFO ExecutionContext] Initialize Env context
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Diag': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_diag'
+[2022-08-04 13:20:45Z INFO JobRunner] Starting the job execution context.
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:45Z INFO JobRunner] Validating directory permissions for: '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Tools': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_tool'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Temp': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_temp'
+[2022-08-04 13:20:45Z INFO JobRunner] Getting job extension.
+[2022-08-04 13:20:45Z INFO JobRunner] Initialize job. Getting all job steps.
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Diag': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_diag'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:45Z INFO HostContext] Well known config file 'Credentials': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.credentials'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:45Z INFO HostContext] Well known config file 'SetupInfo': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/.setup_info'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:45Z INFO PipelineDirectoryManager] Loading tracking config if exists: /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_PipelineMapping/nickgulrajani/vault-action-exampleapp/PipelineFolder.json
+[2022-08-04 13:20:45Z INFO PipelineDirectoryManager] Updating job run properties.
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:45Z INFO JobExtension] Downloading actions
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Actions': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions'
+[2022-08-04 13:20:45Z INFO JobServer] Successfully started websocket client.
+[2022-08-04 13:20:45Z INFO JobServerQueue] Try to append 1 batches web console lines for record '7818b1f9-528d-4bf0-a4ec-9a46cb8134f1', success rate: 1/1.
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Actions': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:45Z INFO HostContext] Well known directory 'Actions': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions'
+[2022-08-04 13:20:45Z INFO ActionManager] Save archive 'https://api.github.com/repos/actions/checkout/tarball/7884fcad6b5d53d10323aee724dc68d8b9096a2e' into /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions/_temp_8a64c366-f7a4-41fe-9ee2-d64e6a96a884/979605fa-71c7-4697-b784-7e0f33111988.tar.gz.
+[2022-08-04 13:20:45Z INFO JobServerQueue] Try to append 1 batches web console lines for record '7818b1f9-528d-4bf0-a4ec-9a46cb8134f1', success rate: 1/1.
+[2022-08-04 13:20:46Z INFO JobServerQueue] Job timeline record has been updated for the first time.
+[2022-08-04 13:20:46Z INFO ActionManager] Which: 'tar'
+[2022-08-04 13:20:46Z INFO ActionManager] Location: '/usr/bin/tar'
+[2022-08-04 13:20:46Z INFO ProcessInvokerWrapper] Starting process:
+[2022-08-04 13:20:46Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/tar'
+[2022-08-04 13:20:46Z INFO ProcessInvokerWrapper]   Arguments: '-xzf "/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions/_temp_8a64c366-f7a4-41fe-9ee2-d64e6a96a884/979605fa-71c7-4697-b784-7e0f33111988.tar.gz"'
+[2022-08-04 13:20:46Z INFO ProcessInvokerWrapper]   Working directory: '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions/_temp_8a64c366-f7a4-41fe-9ee2-d64e6a96a884/_staging'
+[2022-08-04 13:20:46Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-08-04 13:20:46Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-08-04 13:20:46Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-08-04 13:20:46Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-08-04 13:20:46Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-08-04 13:20:46Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-08-04 13:20:46Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-08-04 13:20:46Z INFO ProcessInvokerWrapper] Process started with process id 17888, waiting for process exit.
+[2022-08-04 13:20:46Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:20:46Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:20:46Z INFO ProcessInvokerWrapper] Finished process 17888 with exit code 0, and elapsed time 00:00:00.0789760.
+[2022-08-04 13:20:46Z INFO ActionManager] Finished getting action repository.
+[2022-08-04 13:20:46Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:46Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:46Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:46Z INFO HostContext] Well known directory 'Actions': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions'
+[2022-08-04 13:20:46Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:46Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:46Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:46Z INFO HostContext] Well known directory 'Actions': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions'
+[2022-08-04 13:20:46Z INFO ActionManager] Save archive 'https://api.github.com/repos/hashicorp/vault-action/tarball/61dd38f4918626fea0c45016a508893e5c045210' into /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions/_temp_116b1b31-ef9b-496a-8be3-c2d903389797/f0420d6a-6e98-4c35-a4fc-8ac2765132e3.tar.gz.
+[2022-08-04 13:20:47Z INFO JobServerQueue] Try to append 1 batches web console lines for record '7818b1f9-528d-4bf0-a4ec-9a46cb8134f1', success rate: 1/1.
+[2022-08-04 13:20:47Z INFO ActionManager] Which: 'tar'
+[2022-08-04 13:20:47Z INFO ActionManager] Location: '/usr/bin/tar'
+[2022-08-04 13:20:47Z INFO ProcessInvokerWrapper] Starting process:
+[2022-08-04 13:20:47Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/tar'
+[2022-08-04 13:20:47Z INFO ProcessInvokerWrapper]   Arguments: '-xzf "/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions/_temp_116b1b31-ef9b-496a-8be3-c2d903389797/f0420d6a-6e98-4c35-a4fc-8ac2765132e3.tar.gz"'
+[2022-08-04 13:20:47Z INFO ProcessInvokerWrapper]   Working directory: '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions/_temp_116b1b31-ef9b-496a-8be3-c2d903389797/_staging'
+[2022-08-04 13:20:47Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-08-04 13:20:47Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-08-04 13:20:47Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-08-04 13:20:47Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-08-04 13:20:47Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-08-04 13:20:47Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-08-04 13:20:47Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-08-04 13:20:47Z INFO ProcessInvokerWrapper] Process started with process id 17903, waiting for process exit.
+[2022-08-04 13:20:47Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:20:47Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:20:47Z INFO ProcessInvokerWrapper] Finished process 17903 with exit code 0, and elapsed time 00:00:00.0626689.
+[2022-08-04 13:20:47Z INFO ActionManager] Finished getting action repository.
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Actions': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions'
+[2022-08-04 13:20:47Z INFO ActionManifestManager] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Actions': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions'
+[2022-08-04 13:20:47Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-08-04 13:20:47Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Actions': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions'
+[2022-08-04 13:20:47Z INFO ActionManager] Load action that reference repository from '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions/actions/checkout/v2'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Actions': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions'
+[2022-08-04 13:20:47Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-08-04 13:20:47Z INFO ActionManager] Action pre node.js file: N/A.
+[2022-08-04 13:20:47Z INFO ActionManager] Action node.js file: dist/index.js.
+[2022-08-04 13:20:47Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Actions': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Actions': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions'
+[2022-08-04 13:20:47Z INFO ActionManifestManager] Ignore action property branding.
+[2022-08-04 13:20:47Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Vault Secrets",
+  "description": "A Github Action that allows you to consume HashiCorp Vault™ secrets as secure environment variables",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 4,
+          "col": 3,
+          "lit": "url"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 3,
+          "lit": "secrets"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 10,
+          "col": 3,
+          "lit": "namespace"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 13,
+          "col": 3,
+          "lit": "method"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 15,
+          "col": 14,
+          "lit": "token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 17,
+          "col": 3,
+          "lit": "role"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 20,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 23,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 26,
+          "col": 3,
+          "lit": "roleId"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 29,
+          "col": 3,
+          "lit": "secretId"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 32,
+          "col": 3,
+          "lit": "githubToken"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 35,
+          "col": 3,
+          "lit": "kubernetesTokenPath"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 38,
+          "col": 14,
+          "lit": "/var/run/secrets/kubernetes.io/serviceaccount/token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 39,
+          "col": 3,
+          "lit": "authPayload"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 42,
+          "col": 3,
+          "lit": "extraHeaders"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 45,
+          "col": 3,
+          "lit": "exportEnv"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 49,
+          "col": 3,
+          "lit": "exportToken"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 51,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 53,
+          "col": 3,
+          "lit": "caCertificate"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 56,
+          "col": 3,
+          "lit": "clientCertificate"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 59,
+          "col": 3,
+          "lit": "clientKey"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 62,
+          "col": 3,
+          "lit": "tlsSkipVerify"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 65,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 66,
+          "col": 3,
+          "lit": "jwtPrivateKey"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 69,
+          "col": 3,
+          "lit": "jwtKeyPassword"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 72,
+          "col": 3,
+          "lit": "jwtGithubAudience"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 75,
+          "col": 3,
+          "lit": "jwtTtl"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 78,
+          "col": 14,
+          "lit": "3600"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-08-04 13:20:47Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Actions': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions'
+[2022-08-04 13:20:47Z INFO ActionManager] Load action that reference repository from '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions/hashicorp/vault-action/v2.4.0'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Actions': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions'
+[2022-08-04 13:20:47Z INFO ActionManifestManager] Ignore action property branding.
+[2022-08-04 13:20:47Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Vault Secrets",
+  "description": "A Github Action that allows you to consume HashiCorp Vault™ secrets as secure environment variables",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 4,
+          "col": 3,
+          "lit": "url"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 3,
+          "lit": "secrets"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 10,
+          "col": 3,
+          "lit": "namespace"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 13,
+          "col": 3,
+          "lit": "method"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 15,
+          "col": 14,
+          "lit": "token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 17,
+          "col": 3,
+          "lit": "role"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 20,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 23,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 26,
+          "col": 3,
+          "lit": "roleId"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 29,
+          "col": 3,
+          "lit": "secretId"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 32,
+          "col": 3,
+          "lit": "githubToken"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 35,
+          "col": 3,
+          "lit": "kubernetesTokenPath"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 38,
+          "col": 14,
+          "lit": "/var/run/secrets/kubernetes.io/serviceaccount/token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 39,
+          "col": 3,
+          "lit": "authPayload"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 42,
+          "col": 3,
+          "lit": "extraHeaders"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 45,
+          "col": 3,
+          "lit": "exportEnv"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 49,
+          "col": 3,
+          "lit": "exportToken"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 51,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 53,
+          "col": 3,
+          "lit": "caCertificate"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 56,
+          "col": 3,
+          "lit": "clientCertificate"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 59,
+          "col": 3,
+          "lit": "clientKey"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 62,
+          "col": 3,
+          "lit": "tlsSkipVerify"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 65,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 66,
+          "col": 3,
+          "lit": "jwtPrivateKey"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 69,
+          "col": 3,
+          "lit": "jwtKeyPassword"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 72,
+          "col": 3,
+          "lit": "jwtGithubAudience"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 75,
+          "col": 3,
+          "lit": "jwtTtl"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 78,
+          "col": 14,
+          "lit": "3600"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-08-04 13:20:47Z INFO ActionManager] Action pre node.js file: N/A.
+[2022-08-04 13:20:47Z INFO ActionManager] Action node.js file: dist/index.js.
+[2022-08-04 13:20:47Z INFO ActionManager] Action post node.js file: N/A.
+[2022-08-04 13:20:47Z INFO JobExtension] Adding .
+[2022-08-04 13:20:47Z INFO JobExtension] Adding .
+[2022-08-04 13:20:47Z INFO JobExtension] Adding .
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Diag': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_diag'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Diag': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_diag'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:47Z INFO HostContext] Well known directory 'Diag': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_diag'
+[2022-08-04 13:20:48Z INFO JobExtension] Total accessible running process: 470.
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:48Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "setup_job",
+  "type": "runner",
+  "stage": "Pre",
+  "stepId": "7818b1f9-528d-4bf0-a4ec-9a46cb8134f1",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 3
+}.
+[2022-08-04 13:20:48Z INFO JobRunner] Total job steps: 3.
+[2022-08-04 13:20:48Z INFO JobRunner] Run all job steps.
+[2022-08-04 13:20:48Z INFO StepsRunner] Processing step: DisplayName='Run actions/checkout@v2'
+[2022-08-04 13:20:48Z INFO StepsRunner] Evaluating: success()
+[2022-08-04 13:20:48Z INFO StepsRunner] Result: true
+[2022-08-04 13:20:48Z INFO StepsRunner] Starting the step.
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Actions': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions'
+[2022-08-04 13:20:48Z INFO ActionManager] Load action that reference repository from '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions/actions/checkout/v2'
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Actions': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions'
+[2022-08-04 13:20:48Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-08-04 13:20:48Z INFO ActionManager] Action pre node.js file: N/A.
+[2022-08-04 13:20:48Z INFO ActionManager] Action node.js file: dist/index.js.
+[2022-08-04 13:20:48Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2022-08-04 13:20:48Z INFO ExecutionContext] Reserve record order 5 to 8 for post job actions.
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Diag': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_diag'
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Temp': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_temp'
+[2022-08-04 13:20:48Z INFO ExecutionContext] Write event payload to /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_temp/_github_workflow/event.json
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Temp': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_temp'
+[2022-08-04 13:20:48Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2022-08-04 13:20:48Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker
+[2022-08-04 13:20:48Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker
+[2022-08-04 13:20:48Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.CreateStepSummaryCommand, Runner.Worker
+[2022-08-04 13:20:48Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "nickgulrajani/vault-action-exampleapp"
+}
+[2022-08-04 13:20:48Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2022-08-04 13:20:48Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2022-08-04 13:20:48Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2022-08-04 13:20:48Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2022-08-04 13:20:48Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2022-08-04 13:20:48Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 50,
+  "col": 14,
+  "lit": "true"
+}
+[2022-08-04 13:20:48Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2022-08-04 13:20:48Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 55,
+  "col": 14,
+  "lit": "true"
+}
+[2022-08-04 13:20:48Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 58,
+  "col": 14,
+  "lit": "1"
+}
+[2022-08-04 13:20:48Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 61,
+  "col": 14,
+  "lit": "false"
+}
+[2022-08-04 13:20:48Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 70,
+  "col": 14,
+  "lit": "false"
+}
+[2022-08-04 13:20:48Z INFO ActionManifestManager] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2022-08-04 13:20:48Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2022-08-04 13:20:48Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.InternalPluginSetRepoPathCommandExtension, Runner.Worker
+[2022-08-04 13:20:48Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvCommandExtension, Runner.Worker
+[2022-08-04 13:20:48Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputCommandExtension, Runner.Worker
+[2022-08-04 13:20:48Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateCommandExtension, Runner.Worker
+[2022-08-04 13:20:48Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathCommandExtension, Runner.Worker
+[2022-08-04 13:20:48Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMaskCommandExtension, Runner.Worker
+[2022-08-04 13:20:48Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMatcherCommandExtension, Runner.Worker
+[2022-08-04 13:20:48Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.RemoveMatcherCommandExtension, Runner.Worker
+[2022-08-04 13:20:48Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.WarningCommandExtension, Runner.Worker
+[2022-08-04 13:20:48Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ErrorCommandExtension, Runner.Worker
+[2022-08-04 13:20:48Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.NoticeCommandExtension, Runner.Worker
+[2022-08-04 13:20:48Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.DebugCommandExtension, Runner.Worker
+[2022-08-04 13:20:48Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.GroupCommandExtension, Runner.Worker
+[2022-08-04 13:20:48Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EndGroupCommandExtension, Runner.Worker
+[2022-08-04 13:20:48Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EchoCommandExtension, Runner.Worker
+[2022-08-04 13:20:48Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2022-08-04 13:20:48Z INFO ActionCommandManager] Register action command extension for command set-env
+[2022-08-04 13:20:48Z INFO ActionCommandManager] Register action command extension for command set-output
+[2022-08-04 13:20:48Z INFO ActionCommandManager] Register action command extension for command save-state
+[2022-08-04 13:20:48Z INFO ActionCommandManager] Register action command extension for command add-path
+[2022-08-04 13:20:48Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2022-08-04 13:20:48Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2022-08-04 13:20:48Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2022-08-04 13:20:48Z INFO ActionCommandManager] Register action command extension for command warning
+[2022-08-04 13:20:48Z INFO ActionCommandManager] Register action command extension for command error
+[2022-08-04 13:20:48Z INFO ActionCommandManager] Register action command extension for command notice
+[2022-08-04 13:20:48Z INFO ActionCommandManager] Register action command extension for command debug
+[2022-08-04 13:20:48Z INFO ActionCommandManager] Register action command extension for command group
+[2022-08-04 13:20:48Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2022-08-04 13:20:48Z INFO ActionCommandManager] Register action command extension for command echo
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:48Z INFO HostContext] Well known directory 'Externals': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/externals'
+[2022-08-04 13:20:48Z INFO ProcessInvokerWrapper] Starting process:
+[2022-08-04 13:20:48Z INFO ProcessInvokerWrapper]   File name: '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/externals/node12/bin/node'
+[2022-08-04 13:20:48Z INFO ProcessInvokerWrapper]   Arguments: '"/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions/actions/checkout/v2/dist/index.js"'
+[2022-08-04 13:20:48Z INFO ProcessInvokerWrapper]   Working directory: '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/vault-action-exampleapp/vault-action-exampleapp'
+[2022-08-04 13:20:48Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-08-04 13:20:48Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-08-04 13:20:48Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-08-04 13:20:48Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-08-04 13:20:48Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-08-04 13:20:48Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-08-04 13:20:48Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-08-04 13:20:48Z INFO ProcessInvokerWrapper] Process started with process id 17907, waiting for process exit.
+[2022-08-04 13:20:48Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-08-04 13:20:48Z INFO AddMaskCommandExtension] Add new secret mask with length of 76
+[2022-08-04 13:20:48Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2022-08-04 13:20:48Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-08-04 13:20:48Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-08-04 13:20:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-08-04 13:20:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-08-04 13:20:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-08-04 13:20:50Z INFO JobServerQueue] Try to append 3 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 3/3.
+[2022-08-04 13:20:50Z INFO JobServerQueue] Try to append 2 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 2/2.
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper] Finished process 17907 with exit code 0, and elapsed time 00:00:02.2012760.
+[2022-08-04 13:20:50Z INFO CreateStepSummaryCommand] Step Summary file (/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_temp/_runner_file_commands/step_summary_6e5ee596-3388-4685-a7ea-69e421402400) is empty; skipping attachment upload
+[2022-08-04 13:20:50Z INFO StepsRunner] Step result: 
+[2022-08-04 13:20:50Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v2",
+  "type": "node12",
+  "stage": "Main",
+  "stepId": "a60052d4-79a0-5821-3eeb-84adb9872c5b",
+  "hasPreStep": false,
+  "hasPostStep": true,
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 3
+}.
+[2022-08-04 13:20:50Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2022-08-04 13:20:50Z INFO StepsRunner] Current state: job state = ''
+[2022-08-04 13:20:50Z INFO StepsRunner] Processing step: DisplayName='Import Secrets'
+[2022-08-04 13:20:50Z INFO StepsRunner] Evaluating: success()
+[2022-08-04 13:20:50Z INFO StepsRunner] Result: true
+[2022-08-04 13:20:50Z INFO StepsRunner] Starting the step.
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Actions': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions'
+[2022-08-04 13:20:50Z INFO ActionManager] Load action that reference repository from '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions/hashicorp/vault-action/v2.4.0'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Actions': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions'
+[2022-08-04 13:20:50Z INFO ActionManifestManager] Ignore action property branding.
+[2022-08-04 13:20:50Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Vault Secrets",
+  "description": "A Github Action that allows you to consume HashiCorp Vault™ secrets as secure environment variables",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 4,
+          "col": 3,
+          "lit": "url"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 3,
+          "lit": "secrets"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 10,
+          "col": 3,
+          "lit": "namespace"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 13,
+          "col": 3,
+          "lit": "method"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 15,
+          "col": 14,
+          "lit": "token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 17,
+          "col": 3,
+          "lit": "role"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 20,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 23,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 26,
+          "col": 3,
+          "lit": "roleId"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 29,
+          "col": 3,
+          "lit": "secretId"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 32,
+          "col": 3,
+          "lit": "githubToken"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 35,
+          "col": 3,
+          "lit": "kubernetesTokenPath"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 38,
+          "col": 14,
+          "lit": "/var/run/secrets/kubernetes.io/serviceaccount/token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 39,
+          "col": 3,
+          "lit": "authPayload"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 42,
+          "col": 3,
+          "lit": "extraHeaders"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 45,
+          "col": 3,
+          "lit": "exportEnv"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 49,
+          "col": 3,
+          "lit": "exportToken"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 51,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 53,
+          "col": 3,
+          "lit": "caCertificate"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 56,
+          "col": 3,
+          "lit": "clientCertificate"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 59,
+          "col": 3,
+          "lit": "clientKey"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 62,
+          "col": 3,
+          "lit": "tlsSkipVerify"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 65,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 66,
+          "col": 3,
+          "lit": "jwtPrivateKey"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 69,
+          "col": 3,
+          "lit": "jwtKeyPassword"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 72,
+          "col": 3,
+          "lit": "jwtGithubAudience"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 75,
+          "col": 3,
+          "lit": "jwtTtl"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 78,
+          "col": 14,
+          "lit": "3600"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-08-04 13:20:50Z INFO ActionManager] Action pre node.js file: N/A.
+[2022-08-04 13:20:50Z INFO ActionManager] Action node.js file: dist/index.js.
+[2022-08-04 13:20:50Z INFO ActionManager] Action post node.js file: N/A.
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Temp': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_temp'
+[2022-08-04 13:20:50Z INFO ExecutionContext] Write event payload to /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_temp/_github_workflow/event.json
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Temp': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_temp'
+[2022-08-04 13:20:50Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2022-08-04 13:20:50Z INFO ActionManifestManager] Input 'namespace': default value evaluate result: ""
+[2022-08-04 13:20:50Z INFO ActionManifestManager] Input 'method': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 15,
+  "col": 14,
+  "lit": "token"
+}
+[2022-08-04 13:20:50Z INFO ActionManifestManager] Input 'role': default value evaluate result: ""
+[2022-08-04 13:20:50Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2022-08-04 13:20:50Z INFO ActionManifestManager] Input 'roleId': default value evaluate result: ""
+[2022-08-04 13:20:50Z INFO ActionManifestManager] Input 'secretId': default value evaluate result: ""
+[2022-08-04 13:20:50Z INFO ActionManifestManager] Input 'githubToken': default value evaluate result: ""
+[2022-08-04 13:20:50Z INFO ActionManifestManager] Input 'kubernetesTokenPath': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 38,
+  "col": 14,
+  "lit": "/var/run/secrets/kubernetes.io/serviceaccount/token"
+}
+[2022-08-04 13:20:50Z INFO ActionManifestManager] Input 'authPayload': default value evaluate result: ""
+[2022-08-04 13:20:50Z INFO ActionManifestManager] Input 'extraHeaders': default value evaluate result: ""
+[2022-08-04 13:20:50Z INFO ActionManifestManager] Input 'exportEnv': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2022-08-04 13:20:50Z INFO ActionManifestManager] Input 'exportToken': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 51,
+  "col": 14,
+  "lit": "false"
+}
+[2022-08-04 13:20:50Z INFO ActionManifestManager] Input 'caCertificate': default value evaluate result: ""
+[2022-08-04 13:20:50Z INFO ActionManifestManager] Input 'clientCertificate': default value evaluate result: ""
+[2022-08-04 13:20:50Z INFO ActionManifestManager] Input 'clientKey': default value evaluate result: ""
+[2022-08-04 13:20:50Z INFO ActionManifestManager] Input 'jwtPrivateKey': default value evaluate result: ""
+[2022-08-04 13:20:50Z INFO ActionManifestManager] Input 'jwtKeyPassword': default value evaluate result: ""
+[2022-08-04 13:20:50Z INFO ActionManifestManager] Input 'jwtGithubAudience': default value evaluate result: ""
+[2022-08-04 13:20:50Z INFO ActionManifestManager] Input 'jwtTtl': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 78,
+  "col": 14,
+  "lit": "3600"
+}
+[2022-08-04 13:20:50Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command set-env
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command set-output
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command save-state
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command add-path
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command warning
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command error
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command notice
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command debug
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command group
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command echo
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Externals': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/externals'
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper] Starting process:
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper]   File name: '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/externals/node12/bin/node'
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper]   Arguments: '"/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions/hashicorp/vault-action/v2.4.0/dist/index.js"'
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper]   Working directory: '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/vault-action-exampleapp/vault-action-exampleapp'
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper] Process started with process id 18010, waiting for process exit.
+[2022-08-04 13:20:50Z INFO AddMaskCommandExtension] Add new secret mask with length of 21
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper] Finished process 18010 with exit code 0, and elapsed time 00:00:00.1408976.
+[2022-08-04 13:20:50Z INFO CreateStepSummaryCommand] Step Summary file (/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_temp/_runner_file_commands/step_summary_21c24949-b276-4324-bee1-9cf99d525379) is empty; skipping attachment upload
+[2022-08-04 13:20:50Z INFO StepsRunner] Step result: 
+[2022-08-04 13:20:50Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "hashicorp/vault-action",
+  "ref": "v2.4.0",
+  "type": "node12",
+  "stage": "Main",
+  "stepId": "0c134453-1b3c-597f-9b43-d26a5693f23c",
+  "hasPreStep": false,
+  "hasPostStep": false,
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1
+}.
+[2022-08-04 13:20:50Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2022-08-04 13:20:50Z INFO StepsRunner] Current state: job state = ''
+[2022-08-04 13:20:50Z INFO StepsRunner] Processing step: DisplayName='Build Docker Image'
+[2022-08-04 13:20:50Z INFO StepsRunner] Evaluating: success()
+[2022-08-04 13:20:50Z INFO StepsRunner] Result: true
+[2022-08-04 13:20:50Z INFO StepsRunner] Starting the step.
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Temp': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_temp'
+[2022-08-04 13:20:50Z INFO ExecutionContext] Write event payload to /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_temp/_github_workflow/event.json
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Temp': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_temp'
+[2022-08-04 13:20:50Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2022-08-04 13:20:50Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command set-env
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command set-output
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command save-state
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command add-path
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command warning
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command error
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command notice
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command debug
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command group
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2022-08-04 13:20:50Z INFO ActionCommandManager] Register action command extension for command echo
+[2022-08-04 13:20:50Z INFO ScriptHandler] Which: 'bash'
+[2022-08-04 13:20:50Z INFO ScriptHandler] Location: '/usr/local/bin/bash'
+[2022-08-04 13:20:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-08-04 13:20:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0c134453-1b3c-597f-9b43-d26a5693f23c', success rate: 1/1.
+[2022-08-04 13:20:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'dd23db01-cff6-57a4-373a-5c8097a97333', success rate: 1/1.
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:50Z INFO HostContext] Well known directory 'Temp': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_temp'
+[2022-08-04 13:20:50Z INFO ScriptHandler] Which: 'bash'
+[2022-08-04 13:20:50Z INFO ScriptHandler] Location: '/usr/local/bin/bash'
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper] Starting process:
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper]   File name: '/usr/local/bin/bash'
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper]   Arguments: '-e /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_temp/73243ac0-2941-4e0b-aef6-9fb7dc7a2202.sh'
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper]   Working directory: '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/vault-action-exampleapp/vault-action-exampleapp'
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-08-04 13:20:50Z INFO ProcessInvokerWrapper] Process started with process id 18011, waiting for process exit.
+[2022-08-04 13:20:50Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2022-08-04 13:20:51Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2022-08-04 13:20:51Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:20:51Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:20:51Z INFO ProcessInvokerWrapper] Finished process 18011 with exit code 1, and elapsed time 00:00:01.3498373.
+[2022-08-04 13:20:51Z INFO CreateStepSummaryCommand] Step Summary file (/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_temp/_runner_file_commands/step_summary_487c5adf-d730-46fc-bc43-334a4eaccff0) is empty; skipping attachment upload
+[2022-08-04 13:20:51Z INFO StepsRunner] Step result: Failed
+[2022-08-04 13:20:51Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "sh",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "dd23db01-cff6-57a4-373a-5c8097a97333",
+  "result": "failed",
+  "errorMessages": [
+    "Process completed with exit code 1."
+  ],
+  "executionTimeInSeconds": 2
+}.
+[2022-08-04 13:20:51Z INFO StepsRunner] Update job result with current step result 'Failed'.
+[2022-08-04 13:20:51Z INFO StepsRunner] Current state: job state = 'Failed'
+[2022-08-04 13:20:51Z INFO StepsRunner] Processing step: DisplayName='Post Run actions/checkout@v2'
+[2022-08-04 13:20:51Z INFO StepsRunner] Evaluating: always()
+[2022-08-04 13:20:51Z INFO StepsRunner] Result: true
+[2022-08-04 13:20:51Z INFO StepsRunner] Starting the step.
+[2022-08-04 13:20:51Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:51Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:51Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:51Z INFO HostContext] Well known directory 'Actions': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions'
+[2022-08-04 13:20:51Z INFO ActionManager] Load action that reference repository from '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions/actions/checkout/v2'
+[2022-08-04 13:20:51Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:51Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:51Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:51Z INFO HostContext] Well known directory 'Actions': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions'
+[2022-08-04 13:20:51Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-08-04 13:20:51Z INFO ActionManager] Action pre node.js file: N/A.
+[2022-08-04 13:20:51Z INFO ActionManager] Action node.js file: dist/index.js.
+[2022-08-04 13:20:51Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2022-08-04 13:20:51Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:51Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:51Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:51Z INFO HostContext] Well known directory 'Temp': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_temp'
+[2022-08-04 13:20:51Z INFO ExecutionContext] Write event payload to /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_temp/_github_workflow/event.json
+[2022-08-04 13:20:51Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:51Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:51Z INFO HostContext] Well known directory 'Work': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work'
+[2022-08-04 13:20:51Z INFO HostContext] Well known directory 'Temp': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_temp'
+[2022-08-04 13:20:51Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2022-08-04 13:20:51Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "nickgulrajani/vault-action-exampleapp"
+}
+[2022-08-04 13:20:51Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2022-08-04 13:20:51Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2022-08-04 13:20:51Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2022-08-04 13:20:51Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2022-08-04 13:20:51Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2022-08-04 13:20:51Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 50,
+  "col": 14,
+  "lit": "true"
+}
+[2022-08-04 13:20:51Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2022-08-04 13:20:51Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 55,
+  "col": 14,
+  "lit": "true"
+}
+[2022-08-04 13:20:51Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 58,
+  "col": 14,
+  "lit": "1"
+}
+[2022-08-04 13:20:51Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 61,
+  "col": 14,
+  "lit": "false"
+}
+[2022-08-04 13:20:51Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 70,
+  "col": 14,
+  "lit": "false"
+}
+[2022-08-04 13:20:51Z INFO ActionManifestManager] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2022-08-04 13:20:51Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2022-08-04 13:20:51Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2022-08-04 13:20:51Z INFO ActionCommandManager] Register action command extension for command set-env
+[2022-08-04 13:20:51Z INFO ActionCommandManager] Register action command extension for command set-output
+[2022-08-04 13:20:51Z INFO ActionCommandManager] Register action command extension for command save-state
+[2022-08-04 13:20:51Z INFO ActionCommandManager] Register action command extension for command add-path
+[2022-08-04 13:20:51Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2022-08-04 13:20:51Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2022-08-04 13:20:51Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2022-08-04 13:20:51Z INFO ActionCommandManager] Register action command extension for command warning
+[2022-08-04 13:20:51Z INFO ActionCommandManager] Register action command extension for command error
+[2022-08-04 13:20:51Z INFO ActionCommandManager] Register action command extension for command notice
+[2022-08-04 13:20:51Z INFO ActionCommandManager] Register action command extension for command debug
+[2022-08-04 13:20:51Z INFO ActionCommandManager] Register action command extension for command group
+[2022-08-04 13:20:51Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2022-08-04 13:20:51Z INFO ActionCommandManager] Register action command extension for command echo
+[2022-08-04 13:20:51Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:51Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:51Z INFO HostContext] Well known directory 'Externals': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/externals'
+[2022-08-04 13:20:51Z INFO ProcessInvokerWrapper] Starting process:
+[2022-08-04 13:20:51Z INFO ProcessInvokerWrapper]   File name: '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/externals/node12/bin/node'
+[2022-08-04 13:20:51Z INFO ProcessInvokerWrapper]   Arguments: '"/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_actions/actions/checkout/v2/dist/index.js"'
+[2022-08-04 13:20:51Z INFO ProcessInvokerWrapper]   Working directory: '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/vault-action-exampleapp/vault-action-exampleapp'
+[2022-08-04 13:20:51Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-08-04 13:20:51Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-08-04 13:20:51Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-08-04 13:20:51Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-08-04 13:20:51Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-08-04 13:20:51Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-08-04 13:20:51Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-08-04 13:20:51Z INFO ProcessInvokerWrapper] Process started with process id 18021, waiting for process exit.
+[2022-08-04 13:20:52Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'dd23db01-cff6-57a4-373a-5c8097a97333', success rate: 1/1.
+[2022-08-04 13:20:52Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6357e5cb-5d08-4196-9b4b-58e280153d2e', success rate: 1/1.
+[2022-08-04 13:20:52Z INFO AddMaskCommandExtension] Add new secret mask with length of 32
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] Finished process 18021 with exit code 0, and elapsed time 00:00:00.3553993.
+[2022-08-04 13:20:52Z INFO CreateStepSummaryCommand] Step Summary file (/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_temp/_runner_file_commands/step_summary_c4152f25-a788-4164-b991-f6d09b70017b) is empty; skipping attachment upload
+[2022-08-04 13:20:52Z INFO StepsRunner] Step result: 
+[2022-08-04 13:20:52Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v2",
+  "type": "node12",
+  "stage": "Post",
+  "stepId": "6357e5cb-5d08-4196-9b4b-58e280153d2e",
+  "result": "succeeded",
+  "errorMessages": [
+    "The process '/usr/bin/git' failed with exit code 128"
+  ],
+  "executionTimeInSeconds": 1
+}.
+[2022-08-04 13:20:52Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2022-08-04 13:20:52Z INFO StepsRunner] Current state: job state = 'Failed'
+[2022-08-04 13:20:52Z INFO JobRunner] Finalize job.
+[2022-08-04 13:20:52Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:52Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:52Z INFO HostContext] Well known directory 'Diag': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_diag'
+[2022-08-04 13:20:52Z INFO JobExtension] Initialize Env context
+[2022-08-04 13:20:52Z INFO JobExtension] Initialize steps context
+[2022-08-04 13:20:52Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6357e5cb-5d08-4196-9b4b-58e280153d2e', success rate: 1/1.
+[2022-08-04 13:20:52Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0746b32e-3feb-4011-95fb-c8bc569b5dcc', success rate: 1/1.
+[2022-08-04 13:20:52Z INFO JobExtension] Total accessible running process: 468.
+[2022-08-04 13:20:52Z INFO JobExtension] Inspecting process environment variables. PID: 18059 (mdworker_shared)
+[2022-08-04 13:20:52Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 18059 -o command`
+[2022-08-04 13:20:52Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:52Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] Starting process:
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 18059 -o command'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Working directory: '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] Process started with process id 18070, waiting for process exit.
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] Finished process 18070 with exit code 0, and elapsed time 00:00:00.0119953.
+[2022-08-04 13:20:52Z INFO LinuxProcessExtensions] Successfully dump environment variables for 18059
+[2022-08-04 13:20:52Z INFO JobExtension] Inspecting process environment variables. PID: 18017 (mdworker_shared)
+[2022-08-04 13:20:52Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 18017 -o command`
+[2022-08-04 13:20:52Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:52Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] Starting process:
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 18017 -o command'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Working directory: '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] Process started with process id 18071, waiting for process exit.
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] Finished process 18071 with exit code 0, and elapsed time 00:00:00.0107343.
+[2022-08-04 13:20:52Z INFO LinuxProcessExtensions] Successfully dump environment variables for 18017
+[2022-08-04 13:20:52Z INFO JobExtension] Inspecting process environment variables. PID: 18016 (mdworker_shared)
+[2022-08-04 13:20:52Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 18016 -o command`
+[2022-08-04 13:20:52Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:52Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] Starting process:
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 18016 -o command'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Working directory: '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] Process started with process id 18072, waiting for process exit.
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] Finished process 18072 with exit code 0, and elapsed time 00:00:00.0114836.
+[2022-08-04 13:20:52Z INFO LinuxProcessExtensions] Successfully dump environment variables for 18016
+[2022-08-04 13:20:52Z INFO JobExtension] Inspecting process environment variables. PID: 18015 (mdworker_shared)
+[2022-08-04 13:20:52Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 18015 -o command`
+[2022-08-04 13:20:52Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:52Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] Starting process:
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 18015 -o command'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Working directory: '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] Process started with process id 18074, waiting for process exit.
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-08-04 13:20:52Z INFO ProcessInvokerWrapper] Finished process 18074 with exit code 0, and elapsed time 00:00:00.0093442.
+[2022-08-04 13:20:52Z INFO LinuxProcessExtensions] Successfully dump environment variables for 18015
+[2022-08-04 13:20:52Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "complete_job",
+  "type": "runner",
+  "stage": "Post",
+  "stepId": "0746b32e-3feb-4011-95fb-c8bc569b5dcc",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1
+}.
+[2022-08-04 13:20:52Z INFO JobRunner] Job result after all job steps finish: Failed
+[2022-08-04 13:20:52Z INFO JobRunner] Completing the job execution context.
+[2022-08-04 13:20:52Z INFO JobRunner] Shutting down the job server queue.
+[2022-08-04 13:20:52Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2022-08-04 13:20:52Z INFO JobServerQueue] All queue process task stopped.
+[2022-08-04 13:20:52Z INFO JobServerQueue] Web console line queue drained.
+[2022-08-04 13:20:52Z INFO JobServerQueue] Uploading 4 files in one shot.
+[2022-08-04 13:20:53Z INFO JobServerQueue] Try to upload 4 log files or attachments, success rate: 4/4.
+[2022-08-04 13:20:53Z INFO JobServerQueue] File upload queue drained.
+[2022-08-04 13:20:53Z INFO JobServerQueue] Timeline update queue drained.
+[2022-08-04 13:20:53Z INFO JobServerQueue] Disposing job server ...
+[2022-08-04 13:20:53Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2022-08-04 13:20:53Z INFO TempDirectoryManager] Cleaning runner temp folder: /Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_work/_temp
+[2022-08-04 13:20:53Z INFO HostContext] Well known directory 'Bin': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/bin'
+[2022-08-04 13:20:53Z INFO HostContext] Well known directory 'Root': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner'
+[2022-08-04 13:20:53Z INFO HostContext] Well known directory 'Diag': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_diag'
+[2022-08-04 13:20:53Z INFO HostContext] Well known config file 'Telemetry': '/Users/nichgul/AZUREDEVOPS/PROJECTS/INFRA/TERRAFORM-VAULT/vault-guides/actions-runner/_diag/.telemetry'
+[2022-08-04 13:20:53Z INFO JobRunner] Raising job completed event
+[2022-08-04 13:20:53Z INFO Worker] Job completed.
